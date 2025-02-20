@@ -2,7 +2,7 @@ name: gh_test
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   test:
