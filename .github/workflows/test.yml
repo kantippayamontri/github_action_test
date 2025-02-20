@@ -15,6 +15,7 @@ jobs:
       - name: Print message
         run: |
           echo "It's work" #run use for linux command
+          ls -la
 
   # remote_vps:
   #   runs-on: ubuntu-latest
