@@ -19,8 +19,7 @@ jobs:
 
   test_env_level:
     runs-on: ubuntu-latest
-    environment:
-      name: test_environment
+    environment: test_environment
     env:
       APP_SECRET: ${{ secrets.APP_SECRET }}
       APP_VAR: ${{ secrets.APP_NAME }}
