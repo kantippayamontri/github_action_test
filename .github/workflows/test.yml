@@ -17,6 +17,24 @@ jobs:
           echo "It's work" #run use for linux command
           ls -la
 
+  test_env_level:
+    runs-on: ubuntu-latest
+    environment:
+      name: test_environment
+    env:
+      APP_SECRET: ${{ secrets.APP_SECRET }}
+      APP_VAR: ${{ secrets.APP_NAME }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Print message
+        run: |
+          echo "It's work"
+          echo "APP_SECRET  : $APP_SECRET  "
+          echo "APP_VAR  : $APP_VAR  "
+
   # remote_vps:
   #   runs-on: ubuntu-latest
   #
@@ -24,5 +42,13 @@ jobs:
   #     - name: Checkout code
   #       uses: actions/checkout@v3
   #
-  #     - name: Print message
-  #       run: echo "It's work"
+  #     - name: Remote VPS (remote ssh using password)
+  #       uses: appleboy/ssh-action@v1.2.1
+  #       with: |
+  #         host: ${{ secrets.HOST }}
+  #         username: ${{ secrets.USERNAME }}
+  #         password: ${{ secrets.PASSWORD }}
+  #         port: ${{ secrets.PORT }}
+  #         script: |
+  #           whoami
+  #           curl ifconfig.me
